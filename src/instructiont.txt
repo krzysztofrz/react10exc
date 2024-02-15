@@ -1,0 +1,9 @@
+/////////// zadanie 1   /////
+
+w pliku sa fake data, zaimportuj go,
+dodaj style (przed li nie ma byc kropek)
+stworz input z placeholderem Search...
+wyswietl imiona na stronie oraz np email 
+a nastepnie obsluz wyszukiwarke - ma szukac tylko po name i ma dzialac niezaleznie czy uzytkownik wpisze duze czy male litery
+
+
