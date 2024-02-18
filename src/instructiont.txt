@@ -1,9 +1,26 @@
 /////////// zadanie 1   /////
 
+input search 
+
 w pliku sa fake data, zaimportuj go,
 dodaj style (przed li nie ma byc kropek)
 stworz input z placeholderem Search...
 wyswietl imiona na stronie oraz np email 
 a nastepnie obsluz wyszukiwarke - ma szukac tylko po name i ma dzialac niezaleznie czy uzytkownik wpisze duze czy male litery
+
+
+/////////// zadanie 2   /////
+Counter
+
+stworz jakis element z liczba 0 w srodku
+dwa buttony z - i + niech maja jakis kontener, temu kontenerowi nadaj klase button-wrapper
+
+musimy stworzyc jakas zmienna ktora bedzie przetrzymywac wynik
+uzyjemy to tego odpowiedniego hooka
+
+stworz funkcje dla kazdego przycisku ktora bedzie opowiednio dodawac i odejmowac licznik
+
+w css mamy zrobione klasy positive i negative wraz z animacja
+obsłóz to w taki sposob ze jak counter jest wiekszy od zera to ma klase positive a jak miejszy to negative, a jak 0 to nie ma zadnych z tych klas
 
 

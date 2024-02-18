@@ -1,0 +1,78 @@
+/* color variables */
+:root {
+	--clr-negative: #f17444;
+	--clr-positive: #2abf77;
+	--clr-gray100: #f0f7f8;
+	--clr-gray200: #cfd8dc;
+	--clr-gray300: #a7b7be;
+	--clr-gray400: #6b7e86;
+	--clr-gray500: #425a65;
+}
+
+.app {
+	font-family: "Montserrat", sans-serif;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	gap: 2rem;
+	height: 100vh;
+	background-color: var(--clr-gray100);
+	color: var(--clr-gray500);
+}
+
+h1 {
+	font-size: 34px;
+}
+
+.buttonWrapper {
+	display: flex;
+	gap: 1rem;
+}
+
+.buttonWrapper > * {
+	border: none;
+	background-color: white;
+	box-shadow: 0px 0px 10px var(--clr-gray200);
+	font-weight: bold;
+	font-size: 2rem;
+	color: inherit;
+	border-radius: 50%;
+	outline: none;
+	height: 4rem;
+	width: 4rem;
+	cursor: pointer;
+	transition: background-color 250ms ease-in-out, transform 50ms ease-in-out;
+}
+
+.buttonWrapper > *:hover {
+	background-color: var(--clr-gray200);
+}
+
+.buttonWrapper > *:active {
+	transform: scale(0.9);
+}
+
+.buttonWrapper > *:focus {
+	box-shadow: 0 0 0 3px var(--clr-gray500);
+}
+
+.negative {
+	color: var(--clr-negative);
+	animation: pulse 500ms ease-in-out;
+}
+
+.positive {
+	color: var(--clr-positive);
+	animation: pulse 500ms ease-in-out;
+}
+
+@keyframes pulse {
+	0%,
+	100% {
+		transform: scale(1);
+	}
+	50% {
+		transform: scale(1.2);
+	}
+}
