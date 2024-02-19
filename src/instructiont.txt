@@ -23,4 +23,30 @@ stworz funkcje dla kazdego przycisku ktora bedzie opowiednio dodawac i odejmowac
 w css mamy zrobione klasy positive i negative wraz z animacja
 obsłóz to w taki sposob ze jak counter jest wiekszy od zera to ma klase positive a jak miejszy to negative, a jak 0 to nie ma zadnych z tych klas
 
+/////////// zadanie 3 API request   /////
+
+mamy taki adres api ktory zwroci jakiegos jsona
+https://randomuser.me/api
+lub api z dowcipami
+
+https://api.chucknorris.io/jokes/random
+
+mamy juz zainstalowanego axiosa
+zrobimy najpierw axiosem a potem metoda wbudowana czyli fetchem
+
+importujemy axiosa
+tworzymy funkcje w ktorej uzyjemy axiosa (zapraszamy do dokumentacji)
+
+zeby to oblsuzyc musisz uzyc stanu i w stanie jako wartosc poczatkowoa musisz uzyc dwoch wartosci w obiekcie czyli tekstu i grafiki 
+
+stworzmy przycisk ktory bedzie wywolaywal to api
+
+wygeneruj dowcip i grafike png (grafika chyba nie dziala)
+
+
+////// jak juz bezzie dialzc to robimy to samo tylko za pomoca fetch
+przekopujmy to z axiosa zmienmy tylko to co potrzeba
+nie ma co pamietac na pamiec skladni fetch, najlepije sobie wejsc na strone z dokumentacja i przekopiowac kilka linijek do swojego edtora i tylko pozmieniac to co trzeba
+
+
 
