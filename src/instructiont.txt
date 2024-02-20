@@ -27,9 +27,7 @@ obsłóz to w taki sposob ze jak counter jest wiekszy od zera to ma klase positi
 
 mamy taki adres api ktory zwroci jakiegos jsona
 https://randomuser.me/api
-lub api z dowcipami
 
-https://api.chucknorris.io/jokes/random
 
 mamy juz zainstalowanego axiosa
 zrobimy najpierw axiosem a potem metoda wbudowana czyli fetchem
@@ -41,12 +39,16 @@ zeby to oblsuzyc musisz uzyc stanu i w stanie jako wartosc poczatkowoa musisz uz
 
 stworzmy przycisk ktory bedzie wywolaywal to api
 
-wygeneruj dowcip i grafike png (grafika chyba nie dziala)
+wygeneruj email i grafike png (grafika chyba nie dziala)
 
 
 ////// jak juz bezzie dialzc to robimy to samo tylko za pomoca fetch
 przekopujmy to z axiosa zmienmy tylko to co potrzeba
 nie ma co pamietac na pamiec skladni fetch, najlepije sobie wejsc na strone z dokumentacja i przekopiowac kilka linijek do swojego edtora i tylko pozmieniac to co trzeba
 
+
+//////// kolejny wariant
+
+zrob tak zeby kazde kolejne klikniecie powodowalo dodanie nowego zdjecia i maila 
 
 
