@@ -1,0 +1,41 @@
+.app {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 100vh;
+}
+
+input {
+	padding: 15px;
+	margin: 10px;
+}
+.formInput {
+	display: flex;
+	flex-direction: column;
+	width: 200px;
+}
+
+label {
+	display: flex;
+}
+
+span {
+	display: flex;
+	color: red;
+	margin-bottom: 20px;
+	font-size: 12px;
+	display: none;
+}
+input:invalid[focused="true"] ~ span {
+	display: block;
+}
+
+input:invalid[focused="true"] {
+	border: 1px solid red;
+}
+
+.container {
+	display: flex;
+	flex-direction: column;
+	margin: 20px;
+}

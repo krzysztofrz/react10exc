@@ -52,3 +52,197 @@ nie ma co pamietac na pamiec skladni fetch, najlepije sobie wejsc na strone z do
 zrob tak zeby kazde kolejne klikniecie powodowalo dodanie nowego zdjecia i maila 
 
 
+/////////// zadanie 4   /////////////
+validacja formularza 
+
+https://www.youtube.com/watch?v=tIdNeoHniEY
+
+
+///// czesc piersza  ???????????????
+
+- stworz komponent FormApp i w nim ma byc form do ktorego przekazemy komponeny 4 x FormInput 
+
+- FormInput ma miec narazie label Username i ma przyjac w inpucie propsy z rodzica czyli z FormApp, w rodzimy mamy przekazac komponenty o nazwie 
+
+placeholder i w srodku Username, email, full name, sth else czyli 4 propsy
+
+
+teraz musimy przejac inputa po reaktowemu
+stowrzmy stan w glowym komponenncie niech bedzie username i setUserName
+
+i przkazmy funkcje do zmiany stanu w propsach 
+dodatkowo w glownej aplikacji clg to co zawiera username
+
+w komponenice FormInput musimy jakos przekazac przez funkcje setUsername to co zostalo wpisane do inputa
+
+
+///// czesc druga  ???????????????
+
+kazdorazowe wpisanie czegokolwiek do inputa powoduje ponowne renderowanie komponentu 
+
+mozemy sprobowac zrobic tak zeby wpisywanie nie renderowalo komponentua dopiero na klikniecie przycisku w formularzu 
+bedzie gotowe do wysylki
+
+mozemy zamiast uzywac useState to uzyc useRef hook 
+
+a wiec stworz zmienna usernameRef i do niej przypisz hooka useRef
+
+nastepnie w propsach usun props setUserName bo juz go nie uzywamy i uzyj nowego np o nazwie refer i przekaz tam zmienna do ktorej jest przypisany hook useRef
+
+ dalej w komponencie FormInput pozbywamy sie onChange i wstawiamy wlasciwosc ref z propsem z poprzedniego komponentu
+
+
+ Pamietamy ze useRef będzie zapisywal zmiany ale nie będzie powodowal ponownego renderowania kompnentu
+
+Żeby to udowodnic zrobimy button 
+w form damy onSubmit={handleSubmit} i stowrzmy funkcje handleSubmit i w niej po pierwsze damy e.preventDefalut zeby nam nie przeladowywalo strony po drugie damy clg tego co mamy w zmiennej trzymajacej hooka useRef
+
+i zobaczmy co jest w konsoli teraz po wpisaniu czegos w input i kliknieciu przycisku 
+
+
+///// czesc trzecia   ???????????????
+
+nie bedziemy uzywac tu useRef tylko zrobimy to w inny sposob
+usuwamy wszystko co jest zwiazane z useRef ale funkcje handleSubmit zostawiamy
+
+uzyjemy tu form
+w funkcji handleSubmit stworzymy zmienna data i do niej przypiszemy new FormData(e.target)
+
+zeby odpowidnio targetowac elementy naszego formularza dajemy atrubut name w jako props w naszym formularzu oraz w naszym najnizszym komponencie
+
+teraz mozemy w poprzednim komponencie clg co mamy w data 
+
+ale musimy to zrobic tak
+console.log(Object.fromEntries(data.entries()));
+
+
+///// czesc czwarta   ???????????????
+
+wiec male dpodsumowanie w dwoch zdaniach czesci drugiej i trzeciej
+jelis nie chcesz ponownie renderowac komponentu przy kazdorazowym wpisaniu czegos mozemsz uzyc jak w czesci drugiej useRef lub jak w czesci trzeciej uzyc tej funckji  obiektowej FormData
+czyli w czesci drugiej i trzeciej poznalismy dwie metody ktore nie renderuja kompnentu przy kazdorazowym wpisaniu czegos
+
+
+wiele osob martwie sie jak przy kazdym wpisaniu cos w formularz nastepuje renderowanie komponentu ale to jest normalne i taka jest natura reacta
+
+wiec tu wrocimy do useState
+
+przekazmy w useState obiekt (bo inputow moze byc duzo wiecej)
+niech zmienna nazywa sie values a funkcja setValues i w drodku obiekt
+
+niech w obiekcie beda takie pola 
+        username: "",
+		email: "",
+		birthday: "",
+		password: "",
+		confirmPassword: "",
+
+
+dalej zroibmy sobie tablice dla inputow zeby nie pisac z reki:
+	const inputs = [
+		{
+			id: 1,
+			name: "username",
+			type: "text",
+			placeholder: "Username",
+			label: "Username",
+		},
+		{
+			id: 2,
+			name: "email",
+			type: "email",
+			placeholder: "Email",
+			label: "Email",
+		},
+		{
+			id: 3,
+			name: "birthday",
+			type: "text",
+			placeholder: "Birthday",
+			label: "Birthday",
+		},
+		{
+			id: 4,
+			name: "password",
+			type: "password",
+			placeholder: "Password",
+			label: "Password",
+		},
+		{
+			id: 5,
+			name: "confirmPassword",
+			type: "password",
+			placeholder: "Confirm Password",
+			label: "Confirm Password",
+		},
+	];
+
+i teraz w form musim uzyc funkcji map i to przeiterowac i wyswietlic FormInput z odpowiednimy danymi 
+
+ustaw w mapie w komponencie key, wypakuj wszystkie propsy dal input, props value ustaw na name z tablicy values 
+
+
+teraz stworzymy funkcje np onChange
+i w niej uzyjemy funkcji do zmiany stanu a w niej 
+
+musimy to zapisac tak, wiecej w oneNote
+const onChange = (e) => {
+		setValues({ ...values, [e.target.name]: e.target.value });
+	};
+
+    dalej musimy to przekazac jako props w FormInput i w komponencie dziecku odebrac tego propsa 
+    i tam uzyjemy destrukturyzacji 
+
+
+
+///// czesc piata   ???????????????
+validacja
+
+w formInput stworzymy sobie spana z errorMessage , bedzie to w propsie
+ale funkcje musimy napisac w FormApp
+wczesniej musimy dodac to do naszej tablicy, tu przedostatnie pole
+
+const inputs = [
+		{
+			id: 1,
+			name: "username",
+			type: "text",
+			placeholder: "Username",
+			errorMessage:
+				"Username should be 3-16 characters and shouldn't include any special character!",
+			label: "Username",
+		},
+		{
+			id: 2,
+			name: "email",
+			type: "email",
+			placeholder: "Email",
+			errorMessage: "It should me a valid email address",
+			label: "Email",
+		},
+		{
+			id: 3,
+			name: "birthday",
+			type: "date",
+			placeholder: "Birthday",
+			// errorMessage: "",
+			label: "Birthday",
+		},
+		{
+			id: 4,
+			name: "password",
+			type: "password",
+			placeholder: "Password",
+			errorMessage:
+				"Password should be 8-20 characters and include at least 1 letter, 1 number and 1 special character",
+			label: "Password",
+		},
+		{
+			id: 5,
+			name: "confirmPassword",
+			type: "password",
+			placeholder: "Confirm Password",
+			errorMessage: "Passwords don't match",
+			label: "Confirm Password",
+		},
+	];
